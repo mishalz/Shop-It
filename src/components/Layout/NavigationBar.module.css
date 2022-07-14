@@ -1,0 +1,60 @@
+:root {
+  --navColor: rgba(184, 74, 131, 0.846);
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 120px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: #000000;
+  padding: 10px;
+}
+
+.title {
+  width: 30%;
+}
+
+.title h1 {
+  margin: 10px;
+  display: inline;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  justify-content: center;
+}
+
+.title i {
+  margin: 5px;
+  display: inline;
+  font-size: 30px;
+  color: var(--navColor);
+}
+
+.inner-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  width: 70%;
+}
+
+.inner-flex-container a {
+  color: #000000;
+  margin: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease-out;
+}
+
+.flex-container a:hover {
+  color: var(--navColor);
+  box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
+}
+
+.flex-container .active {
+  color: var(--navColor);
+  pointer-events: none;
+}
