@@ -1,5 +1,5 @@
 :root {
-  --navColor: rgba(184, 74, 131, 0.846);
+  --navColor: rgba(49, 188, 196, 0.781);
 }
 
 .Navbar {
@@ -12,6 +12,7 @@
   font-size: 20px;
   color: #000000;
   padding: 10px;
+  background-color: transparent;
 }
 
 .Navbar i {

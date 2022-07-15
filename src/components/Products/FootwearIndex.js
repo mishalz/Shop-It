@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import Index from "../assets/Index";
 
 const FootwearIndex = () => {
-  const [footwear, isLoading, hasError] = useFetch(
+  const [footwear, isLoading, hasError,] = useFetch(
     "https://shop-it-d6e61-default-rtdb.firebaseio.com/footwear.json"
   );
   return (
