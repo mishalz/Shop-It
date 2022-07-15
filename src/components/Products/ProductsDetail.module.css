@@ -5,7 +5,8 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  margin: 20px 50px;
+  width: 80%;
+  margin: 30px auto;
   padding: 5px;
 }
 .productDetail__img {
@@ -24,15 +25,18 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
+  margin: 10px;
 }
 .productDetail__description h1 {
-  font-size: 40px;
   margin: 10px;
+  font-weight: 350;
+  font-size: 40px;
 }
 .productDetail__description p {
+  font-weight: 350;
   font-size: 20px;
-  margin: 10px;
 }
+
 .productDetail__description button {
   font-size: 20px;
   margin: 10px;
@@ -43,7 +47,16 @@
   transition: all 0.2s ease-in;
   width: 60%;
 }
+
 .productDetail__description button:hover {
   box-shadow: 0px 4px 5px 0px rgb(109, 106, 106);
   background-color: rgba(53, 200, 200, 0.6);
+}
+
+@media (max-width: 550px) {
+  .productDetail {
+    width: 85%;
+    margin: 30px auto;
+    transition: all 0.5s ease;
+  }
 }
