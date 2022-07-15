@@ -1,0 +1,9 @@
+.menu {
+  display: flex;
+  margin: 10px;
+}
+
+.menu .active {
+  color: var(--navColor);
+  pointer-events: none;
+}

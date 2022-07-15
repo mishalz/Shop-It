@@ -1,11 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import BagsIndex from "./components/BagsIndex";
-import DressesIndex from "./components/DressesIndex";
-import FootwearIndex from "./components/FootwearIndex";
 import Hompage from "./components/Homepage";
+import DressesIndex from "./components/Products/DressesIndex";
+import BagsIndex from "./components/Products/BagsIndex";
+import FootwearIndex from "./components/Products/FootwearIndex";
+import NavigationBar from "./components/Navbar/NavBar";
 import Layout from "./components/Layout/Layout";
-import NavigationBar from "./components/Layout/NavigationBar";
-
 function App() {
   return (
     <>
