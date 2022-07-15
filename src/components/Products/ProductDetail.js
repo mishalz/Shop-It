@@ -18,15 +18,12 @@ const ProductDetail = (props) => {
             <img src={searchedItem.image} />
           </div>
           <div className={classes["productDetail__description"]}>
-            <div>
-              <h1>{searchedItem.articleName}</h1>
-            </div>
-            <div>
-              <p>{searchedItem.type}</p>
-            </div>
-            <div>
-              <p>${searchedItem.price}</p>
-            </div>
+            <h1>{searchedItem.articleName}</h1>
+
+            <p>{searchedItem.type}</p>
+
+            <p>${searchedItem.price}</p>
+
             <button>Add to cart</button>
           </div>
         </div>
