@@ -5,6 +5,13 @@ const NavMenu = (props) => {
   return (
     <div className={`${classes.menu} ${props.className}`}>
       <NavLink
+        to="/"
+        className={({ isActive }) => (isActive ? classes.active : undefined)}
+        onClick={props.onClick}
+      >
+        Home
+      </NavLink>
+      <NavLink
         to="/bags"
         className={({ isActive }) => (isActive ? classes.active : undefined)}
         onClick={props.onClick}
@@ -24,20 +31,6 @@ const NavMenu = (props) => {
         onClick={props.onClick}
       >
         Footwear
-      </NavLink>
-      <NavLink
-        to="/"
-        className={({ isActive }) => (isActive ? classes.active : undefined)}
-        onClick={props.onClick}
-      >
-        Login
-      </NavLink>
-      <NavLink
-        to="/"
-        className={({ isActive }) => (isActive ? classes.active : undefined)}
-        onClick={props.onClick}
-      >
-        Logout
       </NavLink>
       <NavLink
         to="/"

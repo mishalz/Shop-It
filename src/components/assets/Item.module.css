@@ -4,6 +4,11 @@
   margin: auto;
 }
 
-a {
+.item a {
   text-decoration: none;
+}
+
+.item p {
+  color: rgb(173, 100, 100);
+  font-weight: 600;
 }

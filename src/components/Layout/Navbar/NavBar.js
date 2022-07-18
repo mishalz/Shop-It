@@ -15,25 +15,27 @@ const NavigationBar = () => {
   };
 
   return (
-    <div className={classes["Navbar"]}>
-      <div className={classes["Navbar__title"]}>
-        <h1>Shop It</h1>
-        <i className="fa fa-paw"></i>
+    <header>
+      <div className={classes.Navbar}>
+        <div className={classes["Navbar__title"]}>
+          <h1>Shop It</h1>
+          <i className="fa fa-paw"></i>
+        </div>
+
+        <NavMenu className={classes["Navbar__menu"]} />
+
+        <a className={classes["Navbar__toggleIcon"]} onClick={toggleHandler}>
+          <i className="fa fa-solid fa-bars"></i>
+        </a>
+
+        {navbarToggle && (
+          <NavMenu
+            className={classes["Navbar__toggleMenu"]}
+            onClick={closeMenu}
+          />
+        )}
       </div>
-
-      <NavMenu className={classes["Navbar__menu"]} />
-
-      <a className={classes["Navbar__toggleIcon"]} onClick={toggleHandler}>
-        <i className="fa fa-solid fa-bars"></i>
-      </a>
-
-      {navbarToggle && (
-        <NavMenu
-          className={classes["Navbar__toggleMenu"]}
-          onClick={closeMenu}
-        />
-      )}
-    </div>
+    </header>
   );
 };
 

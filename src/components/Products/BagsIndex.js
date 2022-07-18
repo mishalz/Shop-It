@@ -1,18 +1,16 @@
-import Index from "../assets/Index";
+import Items from "../assets/Items";
 import classes from "./BagsIndex.module.css";
 import useFetch from "../../hooks/useFetch";
 
 const BagsIndex = () => {
-  const [bags, isLoading, hasError,] = useFetch(
+  const [bags, isLoading, hasError] = useFetch(
     "https://shop-it-d6e61-default-rtdb.firebaseio.com/bags.json"
   );
 
   return (
-    <Index
+    <Items
       className={classes.BagsIndex}
-      items={bags}
-      isLoading={isLoading}
-      hasError={hasError}
+      itemsInfo={{ items: bags, isLoading, hasError }}
     />
   );
 };

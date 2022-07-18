@@ -1,16 +1,26 @@
 import { Link } from "react-router-dom";
-import Card from "../Layout/Card";
+import Card from "../Layout/UI/Card";
 import classes from "./Item.module.css";
 
 const Item = (props) => {
+  const itemType = window.location.pathname.toString().slice(1);
+
   return (
-    <Card className={props.className}>
-      <Link to={`${window.location.pathname}/${props.item.id}`}>
-        <header>{props.item.articleName}</header>
-        <img className={classes["img"]} src={props.item.image} />
-        <p>${props.item.price}</p>
-      </Link>
-    </Card>
+    <div className={classes.item}>
+      <Card
+        className={`${props.className}`}
+        headerContent={props.item.articleName}
+        footerContent={`$${props.item.price}`}
+      >
+        <Link to={`${window.location.pathname}/${props.item.id}`}>
+          <img
+            className={classes["img"]}
+            src={props.item.image}
+            alt={`a ${itemType}`}
+          />
+        </Link>
+      </Card>
+    </div>
   );
 };
 export default Item;
