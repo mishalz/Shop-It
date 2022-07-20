@@ -1,9 +1,40 @@
 .menu {
   display: flex;
-  margin: 10px;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 16px;
 }
 
 .menu .active {
   color: var(--navColor);
   pointer-events: none;
+}
+
+.cart-icon {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(49, 189, 196, 0.522);
+  padding: 0px 7px 0px 0px;
+  border-radius: 15px;
+}
+.cart-icon i {
+  width: 50%;
+  margin: 5px;
+}
+.cart-icon__badge {
+  display: inline-flex;
+  background-color: rgba(211, 137, 137, 0.613);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+.dropdown {
+  padding: 5px;
 }

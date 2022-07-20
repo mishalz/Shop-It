@@ -1,6 +1,5 @@
 import Item from "./Item";
 import classes from "./Items.module.css";
-import NavigationBar from "../Layout/Navbar/NavBar";
 import Layout from "../Layout/UI/Layout";
 import LoadingSpinner from "../Layout/UI/LoadingSpinner";
 
@@ -45,7 +44,6 @@ const Items = (props) => {
   }
   return (
     <>
-      <NavigationBar />
       <Layout>
         <div className={classes["flex-container"]}>{content}</div>{" "}
       </Layout>

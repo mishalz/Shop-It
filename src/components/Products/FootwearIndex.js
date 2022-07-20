@@ -4,7 +4,7 @@ import Items from "../assets/Items";
 
 const FootwearIndex = () => {
   const [footwear, isLoading, hasError] = useFetch(
-    "https://shop-it-d6e61-default-rtdb.firebaseio.com/footwear.json"
+    `${process.env.FIREBASE_BASE_URL}/footwear.json`
   );
   return (
     <Items

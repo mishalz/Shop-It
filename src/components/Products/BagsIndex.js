@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const BagsIndex = () => {
   const [bags, isLoading, hasError] = useFetch(
-    "https://shop-it-d6e61-default-rtdb.firebaseio.com/bags.json"
+    `${process.env.FIREBASE_BASE_URL}/bags.json`
   );
 
   return (

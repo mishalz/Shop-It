@@ -12,7 +12,6 @@
   width: 50%;
 }
 .productDetail__img img {
-  max-height: 500px;
   max-width: 100%;
   border-radius: 5px;
 }
@@ -32,22 +31,30 @@
 .productDetail__description p {
   font-size: 20px;
 }
+.productDetail__description a {
+  color: rgb(211, 137, 137);
+  transition: all 0.2s ease;
+}
+.productDetail__description a:hover {
+  color: rgb(167, 111, 111);
+}
 
 .productDetail__description button {
   font-size: 20px;
   margin: 10px;
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid rgb(70, 67, 67);
+  border-radius: 10px;
+  border: none;
   background-color: var(--navColor);
-  transition: all 0.2s ease-in;
-  width: 60%;
+  border: 1px solid rgb(38, 158, 164);
+  transition: all 0.3s ease-in;
+  width: 40%;
 }
 
 .productDetail__description button:hover {
   box-shadow: 0px 4px 5px 0px rgb(109, 106, 106);
   background-color: rgba(53, 200, 200, 0.6);
-  width: 62%;
+  width: 41%;
 }
 
 @media (max-width: 580px) {

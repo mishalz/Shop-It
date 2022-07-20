@@ -2,20 +2,21 @@ import NavigationBar from "./Layout/Navbar/NavBar";
 import classes from "./Homepage.module.css";
 import useFetch from "../hooks/useFetch";
 import Card from "./Layout/UI/Card";
+import { Link } from "react-router-dom";
 
 const Hompage = () => {
   let dressesItem;
   let footwearItem;
   const [bags] = useFetch(
-    "https://shop-it-d6e61-default-rtdb.firebaseio.com/bags.json"
+    `${process.env.FIREBASE_BASE_URL}/bags.json`
   );
 
   const [dresses] = useFetch(
-    "https://shop-it-d6e61-default-rtdb.firebaseio.com/dresses.json"
+    `${process.env.FIREBASE_BASE_URL}/dresses.json`
   );
 
   const [footwear] = useFetch(
-    "https://shop-it-d6e61-default-rtdb.firebaseio.com/footwear.json"
+    `${process.env.FIREBASE_BASE_URL}/footwear.json`
   );
 
   if (footwear) {
@@ -28,8 +29,6 @@ const Hompage = () => {
 
   return (
     <>
-      <NavigationBar />
-
       <div className={classes["first-section"]}>
         <div className={classes["first-section__scroll"]}>
           {bagsImages.map((bag) => (
@@ -40,7 +39,7 @@ const Hompage = () => {
         <div className={classes["first-section__description"]}>
           Get your hands on the best handbags in town
           <div>
-            <a href="/bags">see all</a>
+            <Link to="/bags">see all</Link>
           </div>
         </div>
       </div>
@@ -49,7 +48,7 @@ const Hompage = () => {
         <Card
           className={classes["second-section__category"]}
           headerContent="Footwear"
-          footerContent={<a href="/footwear">see all</a>}
+          footerContent={<Link to="/footwear">see all</Link>}
           footerClass={classes["second-section__footer"]}
         >
           {footwearItem && <img src={footwearItem.image} alt="shoes" />}
@@ -58,7 +57,7 @@ const Hompage = () => {
           className={classes["second-section__category"]}
           headerContent="Dresses"
           footerClass={classes["second-section__footer"]}
-          footerContent={<a href="/dresses">see all</a>}
+          footerContent={<Link to="/dresses">see all</Link>}
         >
           {dressesItem && <img src={dressesItem.image} alt="a dress" />}
         </Card>
@@ -68,7 +67,7 @@ const Hompage = () => {
         <div className={classes["third-section__contacts"]}>
           <h1>Contact us</h1>
           <p>
-            <i class="fa fa-envelope"></i> shop-it@gmail.com
+            <i className="fa fa-envelope"></i> shop-it@gmail.com
           </p>
 
           <p>
