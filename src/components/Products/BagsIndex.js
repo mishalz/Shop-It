@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const BagsIndex = () => {
   const [bags, isLoading, hasError] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/bags.json`
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}bags.json`
   );
 
   return (

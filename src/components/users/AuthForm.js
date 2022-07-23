@@ -1,9 +1,15 @@
 import { useState, useRef } from "react";
 import LoadingSpinner from "../Layout/UI/LoadingSpinner";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./AuthForm.module.css";
 
+
 const AuthForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const [isLogin, setIsLogin] = useState(true);
@@ -21,38 +27,52 @@ const AuthForm = () => {
     const email = emailInputRef.current.value;
     const password = passwordInputRef.current.value;
 
+    let url;
     if (isLogin) {
-      fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]${process.env.FIREBASE_WEB_API_KEY}`
-      );
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_WEB_API_KEY}`;
     } else {
-      fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.FIREBASE_WEB_API_KEY}`,
-        {
-          method: "POST",
-          body: JSON.stringify({ email, password, returnSecureToken: true }),
-          header: {
-            "Content-Type": "application/json",
-          },
-        }
-      ).then((res) => {
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_WEB_API_KEY}`;
+    }
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify({ email, password, returnSecureToken: true }),
+      header: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        setIsLoading(false);
         if (res.ok) {
-          setErrorMessage(null);
-          emailInputRef.current.value = "";
-          passwordInputRef.current.value = "";
-          setIsLogin(true);
+          return res.json();
         } else {
           return res.json().then((data) => {
             let errMessage = "Authentication failed!";
             if (data && data.error && data.error.message) {
               errMessage = data.error.message;
             }
-            setErrorMessage(errMessage);
+            throw new Error(errMessage);
           });
         }
+      })
+      .then((data) => {
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        emailInputRef.current.value = "";
+        passwordInputRef.current.value = "";
+        setErrorMessage(null);
+        setIsLogin(true);
+        dispatch(
+          login({
+            token: data.idToken,
+            expirationTime: expirationTime.toISOString(),
+          })
+        );
+        navigate("/");
+      })
+      .catch((err) => {
+        setErrorMessage(err.message);
       });
-    }
-    setIsLoading(false);
   };
 
   return (
@@ -74,20 +94,22 @@ const AuthForm = () => {
         </div>
         {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         <div className={classes.actions}>
-          <button>{isLogin ? "Login" : "Create Account"}</button>
+          {isLoading && (
+            <div>
+              <LoadingSpinner />
+            </div>
+          )}
+
+          <button disabled={isLoading ? true : false}>
+            {isLogin ? "Login" : "Create Account"}
+          </button>
+
           <button
             type="button"
             className={classes.toggle}
             onClick={switchAuthModeHandler}
           >
-            {isLoading && (
-              <div>
-                <LoadingSpinner />
-              </div>
-            )}
-            {!isLoading && isLogin
-              ? "Create new account"
-              : "Login with existing account"}
+            {isLogin ? "Create new account" : "Login with existing account"}
           </button>
         </div>
       </form>

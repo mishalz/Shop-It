@@ -4,7 +4,7 @@ import Items from "../assets/Items";
 
 const FootwearIndex = () => {
   const [footwear, isLoading, hasError] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/footwear.json`
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}footwear.json`
   );
   return (
     <Items

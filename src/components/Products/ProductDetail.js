@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const [, isLoading, , searchedItem] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/${params.type}.json`,
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}${params.type}.json`,
     params.id
   );
 
@@ -20,7 +20,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      {isLoading && <LoadingSpinner />}
+      {isLoading && <LoadingSpinner className={classes.LoadingSpinner} />}
       {!isLoading && (
         <div className={classes.productDetail}>
           <div className={classes["productDetail__img"]}>

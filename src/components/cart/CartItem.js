@@ -4,7 +4,7 @@ const CartItem = (props) => {
   return (
     <li className={classes["cart-item"]}>
       <div className={classes.image}>
-        <img src={props.image} />
+        <img src={props.image} alt={`a ${props.type}`} />
 
         <div className={classes.summary}>
           <span className={classes.name}>{props.name}</span>

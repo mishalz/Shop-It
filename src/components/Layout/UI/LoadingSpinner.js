@@ -1,9 +1,9 @@
 import classes from "./LoadingSpinner.module.css";
 
-const LoadingSpinner = () => {
+const LoadingSpinner = (props) => {
   return (
     <div className={classes["spinner-container"]}>
-      <div className={classes["loading-spinner"]}></div>
+      <div className={`${props.className} ${classes["loading-spinner"]}`}></div>
     </div>
   );
 };

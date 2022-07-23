@@ -1,43 +1,28 @@
 :root {
   --navColor: rgba(49, 189, 196, 0.7);
 }
+header {
+  background-color: rgba(211, 137, 137, 0.739);
+  box-sizing: border-box;
+  padding: 10px;
+}
+header i {
+  display: inline;
+  color: white;
+}
 
-.Navbar {
+.NavbarTitleSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: auto;
-  font-size: 18px;
-  color: #000000;
-  background-color: rgba(211, 137, 137, 0.739);
-}
-
-.Navbar i {
-  margin: 5px;
-  display: inline;
-  font-size: 30px;
-  color: white;
-}
-
-.Navbar a {
-  color: #000000;
-  margin: 10px;
-  text-decoration: none;
-  transition: all 0.2s ease-out;
-  font-weight: 400;
-}
-
-.Navbar a:hover {
-  color: white;
-  box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
 }
 
 .Navbar__title {
-  padding-top: 10px;
-  width: 100%;
-  text-align: center;
+  display: inline;
+  width: auto;
+}
+.Navbar__title i {
+  font-size: 30px;
 }
 
 .Navbar__title h1 {
@@ -47,39 +32,4 @@
   font-size: 30px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 200;
-}
-
-.Navbar__menu {
-  display: block;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.Navbar .Navbar__toggleMenu,
-.Navbar__toggleIcon {
-  display: none;
-}
-
-@media (max-width: 710px) {
-  .Navbar__title {
-    padding-top: 0px;
-    width: auto;
-    text-align: left;
-  }
-  .Navbar .Navbar__menu {
-    display: none;
-  }
-  .Navbar__toggleIcon {
-    display: block;
-    width: auto;
-    float: inline-end;
-    padding: 10px;
-  }
-  .Navbar .Navbar__toggleMenu {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-  }
 }

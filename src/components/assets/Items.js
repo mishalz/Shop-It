@@ -7,7 +7,7 @@ const Items = (props) => {
   let content;
 
   if (props.itemsInfo.isLoading) {
-    content = <LoadingSpinner />;
+    content = <LoadingSpinner className={classes.LoadingSpinner}/>;
   }
   if (!props.itemsInfo.isLoading && props.itemsInfo.hasError) {
     content = (

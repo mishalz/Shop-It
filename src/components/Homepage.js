@@ -1,4 +1,3 @@
-import NavigationBar from "./Layout/Navbar/NavBar";
 import classes from "./Homepage.module.css";
 import useFetch from "../hooks/useFetch";
 import Card from "./Layout/UI/Card";
@@ -8,15 +7,15 @@ const Hompage = () => {
   let dressesItem;
   let footwearItem;
   const [bags] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/bags.json`
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}bags.json`
   );
 
   const [dresses] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/dresses.json`
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}dresses.json`
   );
 
   const [footwear] = useFetch(
-    `${process.env.FIREBASE_BASE_URL}/footwear.json`
+    `${process.env.REACT_APP_FIREBASE_BASE_URL}footwear.json`
   );
 
   if (footwear) {

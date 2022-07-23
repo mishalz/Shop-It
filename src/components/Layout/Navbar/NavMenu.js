@@ -1,20 +1,29 @@
 import classes from "./NavMenu.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useReducer } from "react";
+import NavbarCartIcon from "./NavbarCartIcon";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../store/AuthSlice";
+import { clearCart } from "../../../store/CartSlice";
+
+const navbarStateReducer = (action) => {};
+const navbarStateDefault = {};
 
 const NavMenu = (props) => {
-  const cartCount = useSelector((state) => state.cart.totalQuantity);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const authStatus = useSelector((state) => state.auth.isLoggedIn);
+
+  const logoutHandler = () => {
+    dispatch(logout());
+    dispatch(clearCart());
+    navigate("/");
+  };
 
   return (
-    <>
-      <div className={`${classes.menu} ${props.className}`}>
-        <div className={classes["cart-icon"]} onClick={props.onOpenCart}>
-          <i className="fa fa-shopping-cart"></i>
-          <div className={classes["cart-icon__badge"]}>
-            <p>{cartCount}</p>
-          </div>
-        </div>
+    <div className={classes.NavMenu}>
+      <div className={classes["public-links"]}>
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? classes.active : undefined)}
@@ -43,40 +52,45 @@ const NavMenu = (props) => {
         >
           Footwear
         </NavLink>
+      </div>
 
-        <NavLink
-          to="/login"
-          className={({ isActive }) => (isActive ? classes.active : undefined)}
-          onClick={props.onClick}
-        >
-          Login
-        </NavLink>
-        <NavLink
-          to="/logout"
-          className={({ isActive }) => (isActive ? classes.active : undefined)}
-          onClick={props.onClick}
-        >
-          Logout
-        </NavLink>
-        <NavLink
-          to="/edit-profile"
-          className={({ isActive }) => (isActive ? classes.active : undefined)}
-          onClick={props.onClick}
-        >
-          Change password
-        </NavLink>
-        <NavLink
-          to="/orders"
-          className={({ isActive }) => (isActive ? classes.active : undefined)}
-          onClick={props.onClick}
-        >
-          My orders
-        </NavLink>
-        <div className={classes.dropdown} onClick={props.onOpenDropdown}>
-          <i className="fa fa-user-circle"></i>
+      {<NavbarCartIcon onOpenCart={props.onOpenCart} />}
+
+      <div className={classes.dropdown}>
+        {!authStatus && (
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? classes.active : undefined
+            }
+          >
+            Login
+          </NavLink>
+        )}
+        {authStatus && (
+          <i className={`fa fa-user-circle ${classes.dropdownOpt}`}></i>
+        )}
+
+        <div className={classes["dropdown-content"]}>
+          {authStatus && (
+            <NavLink
+              to="/my-orders"
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              My orders
+            </NavLink>
+          )}
+
+          {authStatus && (
+            <span className={classes.logout} onClick={logoutHandler}>
+              Logout
+            </span>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

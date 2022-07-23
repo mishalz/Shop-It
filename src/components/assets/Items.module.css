@@ -19,3 +19,11 @@
   border: var(--navColor);
   padding: 20px;
 }
+
+.LoadingSpinner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+}
