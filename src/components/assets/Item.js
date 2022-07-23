@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Card from "../Layout/UI/Card";
+import Card from "../ui/Card";
 import classes from "./Item.module.css";
 
 const Item = (props) => {

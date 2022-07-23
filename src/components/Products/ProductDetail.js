@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import classes from "./ProductsDetail.module.css";
 import useFetch from "../../hooks/useFetch";
-import LoadingSpinner from "../Layout/UI/LoadingSpinner";
+import LoadingSpinner from "../ui/LoadingSpinner";
 import { useDispatch } from "react-redux";
 import { increment } from "../../store/CartSlice";
 import { Link } from "react-router-dom";

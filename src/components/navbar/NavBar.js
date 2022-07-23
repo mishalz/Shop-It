@@ -3,7 +3,7 @@ import "font-awesome/css/font-awesome.min.css";
 import NavMenu from "./NavMenu";
 const NavigationBar = (props) => {
   return (
-    <header>
+    <header className={classes.navbarHeader}>
       <section className={classes.NavbarTitleSection}>
         <div className={classes["Navbar__title"]}>
           <h1>Shop It</h1>

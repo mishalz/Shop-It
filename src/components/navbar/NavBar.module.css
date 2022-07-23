@@ -1,17 +1,20 @@
 :root {
   --navColor: rgba(49, 189, 196, 0.7);
 }
-header {
-  background-color: rgba(211, 137, 137, 0.739);
-  box-sizing: border-box;
-  padding: 10px;
+.navbarHeader {
+  height: 58px;
 }
-header i {
+.navbarHeader i {
   display: inline;
   color: white;
 }
 
 .NavbarTitleSection {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgba(225, 148, 148, 0.872);
+  width: 100%;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,6 +1,7 @@
 .NavMenu {
   display: flex;
   justify-content: space-between;
+
   align-items: center;
 }
 .public-links {
@@ -15,6 +16,7 @@
   transition: all 0.2s ease-out;
   font-weight: 400;
 }
+
 .dropdown a,
 .logout {
   font-size: 20px;
@@ -24,17 +26,17 @@
   transition: all 0.2s ease-out;
   font-weight: 400;
 }
+.dropdown a:hover,
+.logout:hover {
+  color: rgb(211, 137, 137);
+  box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
+}
 
 .public-links a:hover {
   color: white;
   box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
 }
 
-.dropdown a:hover,
-.logout:hover {
-  color: rgb(211, 137, 137);
-  box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
-}
 .public-links .active,
 .dropdown .active {
   color: var(--navColor);
@@ -44,14 +46,6 @@
 .dropdownOpt {
   font-size: 30px;
   margin-left: 5px;
-}
-
-.dropbtn {
-  color: transparent;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
 }
 
 .dropdown {
@@ -74,4 +68,48 @@
 .dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
+}
+#navbarToggle {
+  display: none;
+}
+@media (max-width: 720px) {
+  .NavMenu {
+    flex-direction: row-reverse;
+  }
+  .navBarDropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
+    padding: 5px;
+  }
+  .navBarDropdown a {
+    font-size: 20px;
+    color: #000000;
+    margin: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+    font-weight: 400;
+  }
+  .navBarDropdown a:hover {
+    color: rgb(211, 137, 137);
+    box-shadow: 0px 2px 0px 0 rgba(105, 101, 101, 0.149);
+  }
+  .public-links {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  #navbarToggle {
+    font-size: 30px;
+
+    display: block;
+  }
+  .navBarDropdown:hover .public-links {
+    display: flex;
+    flex-direction: column;
+  }
 }

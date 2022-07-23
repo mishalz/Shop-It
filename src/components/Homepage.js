@@ -1,9 +1,9 @@
 import classes from "./Homepage.module.css";
 import useFetch from "../hooks/useFetch";
-import Card from "./Layout/UI/Card";
+import Card from "./ui/Card";
 import { Link } from "react-router-dom";
 
-const Hompage = () => {
+const Homepage = () => {
   let dressesItem;
   let footwearItem;
   const [bags] = useFetch(
@@ -89,4 +89,4 @@ const Hompage = () => {
   );
 };
 
-export default Hompage;
+export default Homepage;

@@ -1,7 +1,7 @@
 import classes from "./OrdersHistory.module.css";
 import useFetch from "../../hooks/useFetch";
 import Order from "./Order";
-import Layout from "../Layout/UI/Layout";
+import Layout from "../ui/Layout";
 const OrdersHistory = () => {
   const [orders] = useFetch(
     `${process.env.REACT_APP_FIREBASE_BASE_URL}orders.json`

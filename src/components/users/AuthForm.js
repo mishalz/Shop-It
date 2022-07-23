@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import LoadingSpinner from "../Layout/UI/LoadingSpinner";
+import LoadingSpinner from "../ui/LoadingSpinner";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/AuthSlice";
 import { useNavigate } from "react-router-dom";

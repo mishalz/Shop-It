@@ -27,3 +27,9 @@
   top: 50%;
   left: 50%;
 }
+.sortOpt {
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  color: rgb(173, 100, 100);
+}

@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, clearCart } from "../../store/CartSlice";
 import CartItem from "./CartItem";
-import Modal from "../Layout/UI/Modal";
+import Modal from "../ui/Modal";
 import classes from "./Cart.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Cart = (props) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-
+  const authState = useSelector((state) => state.auth.isLoggedIn);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -20,9 +20,11 @@ const Cart = (props) => {
   };
 
   const submitOrderHandler = () => {
-    navigate("/place-order");
-    props.onOpenForm();
+    if (authState) {
+      props.onOpenForm();
+    }
     props.onCloseCart();
+    navigate("/place-order");
   };
   return (
     <Modal onClose={props.onCloseCart}>
