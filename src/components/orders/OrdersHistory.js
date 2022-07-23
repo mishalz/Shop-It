@@ -1,4 +1,4 @@
-import classes from "./OrdersHistory.module.css";
+
 import useFetch from "../../hooks/useFetch";
 import Order from "./Order";
 import Layout from "../ui/Layout";
@@ -12,7 +12,7 @@ const OrdersHistory = () => {
 
   return (
     <Layout>
-      {myorders.map((order, index) => (
+      {myorders.reverse().map((order, index) => (
         <Order order={order} key={order.id} index={index} />
       ))}
     </Layout>

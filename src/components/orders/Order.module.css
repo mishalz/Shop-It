@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  max-height: 100px;
+  max-height: 130px;
   overflow: scroll;
   padding: 10px;
   width: 50%;
@@ -37,6 +37,7 @@
 }
 .image {
   display: flex;
+  align-items: center;
 }
 .summary {
   display: flex;
