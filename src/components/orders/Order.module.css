@@ -3,9 +3,11 @@
   border: 2px solid var(--navColor);
   padding: 5px;
   border-radius: 20px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  width: 70%;
 }
 .order-details ul {
   list-style: none;
@@ -58,4 +60,20 @@
 }
 .title {
   text-align: center;
+}
+
+@media (max-width: 500px) {
+  .order-details {
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+  }
+  .order-item {
+    width: 100%;
+    align-items: center;
+  }
+  .order-info {
+    width: 100%;
+    text-align: center;
+  }
 }
