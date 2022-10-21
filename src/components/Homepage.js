@@ -7,15 +7,15 @@ const Homepage = () => {
   let dressesItem;
   let footwearItem;
   const [bags] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}bags.json`
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/bags.json`
   );
 
   const [dresses] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}dresses.json`
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/dresses.json`
   );
 
   const [footwear] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}footwear.json`
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/footwear.json`
   );
 
   if (footwear) {
