@@ -4,23 +4,21 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Suspense } from "react";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
-import classes from "./components/products/ProductsDetail.module.css";
+import classes from "./components/Products/ProductsDetail.module.css";
 
 //<============= lazy routing ===========>
 const Homepage = React.lazy(() => import("./components/Homepage"));
 const DressesIndex = React.lazy(() =>
-  import("./components/products/DressesIndex")
+  import("./components/Products/DressesIndex")
 );
-const BagsIndex = React.lazy(() => import("./components/products/BagsIndex"));
+const BagsIndex = React.lazy(() => import("./components/Products/BagsIndex"));
 const FootwearIndex = React.lazy(() =>
-  import("./components/products/FootwearIndex")
+  import("./components/Products/FootwearIndex")
 );
 const ProductDetail = React.lazy(() =>
-  import("./components/products/ProductDetail")
+  import("./components/Products/ProductDetail")
 );
-const NavigationBar = React.lazy(() =>
-  import("./components/navbar/NavBar")
-);
+const NavigationBar = React.lazy(() => import("./components/navbar/NavBar"));
 const Cart = React.lazy(() => import("./components/cart/Cart"));
 const AuthForm = React.lazy(() => import("./components/users/AuthForm"));
 const OrderForm = React.lazy(() => import("./components/orders/OrderForm"));
