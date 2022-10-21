@@ -4,7 +4,7 @@ import Order from "./Order";
 import Layout from "../ui/Layout";
 const OrdersHistory = () => {
   const [orders] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}orders.json`
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/orders.json`
   );
   const myorders = orders.filter(
     (order) => order.email === "mishal.zulfiqar2911@gmail.com"

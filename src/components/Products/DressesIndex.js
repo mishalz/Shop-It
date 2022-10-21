@@ -4,7 +4,7 @@ import classes from "./DressesIndex.module.css";
 
 const DressesIndex = () => {
   const [dresses, isLoading, hasError] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}dresses.json`
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/dresses.json`
   );
 
   return (

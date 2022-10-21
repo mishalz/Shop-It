@@ -10,7 +10,7 @@ const ProductDetail = () => {
   const params = useParams();
   const dispatch = useDispatch();
   const [, isLoading, , searchedItem] = useFetch(
-    `${process.env.REACT_APP_FIREBASE_BASE_URL}${params.type}.json`,
+    `https://shop-it-d6e61-default-rtdb.firebaseio.com/${params.type}.json`,
     params.id
   );
 

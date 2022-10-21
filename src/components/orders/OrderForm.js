@@ -36,7 +36,7 @@ const OrderForm = (props) => {
       };
       setOrderPlaced(true);
 
-      fetch(`${process.env.REACT_APP_FIREBASE_BASE_URL}/orders.json`, {
+      fetch(`https://shop-it-d6e61-default-rtdb.firebaseio.com/orders.json`, {
         method: "POST",
         body: JSON.stringify(order),
         headers: {

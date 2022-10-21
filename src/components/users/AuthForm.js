@@ -29,9 +29,9 @@ const AuthForm = () => {
 
     let url;
     if (isLogin) {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_WEB_API_KEY}`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyD_z8H8-FqIkJq_IvNQ-O5_uiEep2tGp1M`;
     } else {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_WEB_API_KEY}`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyD_z8H8-FqIkJq_IvNQ-O5_uiEep2tGp1M`;
     }
     fetch(url, {
       method: "POST",
